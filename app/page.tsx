@@ -2,28 +2,18 @@ import Image from "next/image"
 import { Linkedin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { PrismIcon } from "./components/prism-icon"
+import { SlowMotionVideo } from "./components/slow-motion-video"
+import { Navigation } from "./components/navigation"
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Navigation */}
       <header className="container mx-auto px-4 py-6">
-        <nav className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-copper-light via-copper to-copper-dark shadow-lg">
-              <PrismIcon className="h-5 w-5 text-black" />
-            </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-copper-light via-copper to-copper-dark bg-clip-text text-transparent">
-              PRISM SPACE
-            </span>
-          </div>
-          <Button className="bg-gradient-to-r from-copper-light via-copper to-copper-dark text-black hover:from-copper hover:to-copper-dark font-medium">
-            Contact
-          </Button>
-        </nav>
+        <Navigation />
       </header>
 
-      {/* Hero Section with Video - No Border */}
+      {/* Hero Section with Slow Motion Video */}
       <section className="container mx-auto px-4 py-20">
         <div className="grid gap-12 md:grid-cols-2 items-center">
           <div>
@@ -40,12 +30,9 @@ export default function Home() {
             </p>
           </div>
           <div className="relative">
-            {/* Video Component - No Border */}
+            {/* Slow Motion Video Component */}
             <div className="relative aspect-square overflow-hidden rounded-xl">
-              <video className="h-full w-full object-cover" autoPlay muted loop playsInline>
-                <source src="/prism-video.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              <SlowMotionVideo src="/prism-video.mp4" playbackRate={0.5} />
             </div>
             {/* Loading New Technology Text */}
             <div className="mt-4 text-center">
@@ -122,7 +109,7 @@ export default function Home() {
       </section>
 
       {/* Contact Form Section - More Casual & Engaging */}
-      <section className="container mx-auto px-4 py-20">
+      <section id="contact-section" className="container mx-auto px-4 py-20">
         <div className="rounded-3xl border border-copper/30 p-8 md:p-12 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-copper/10 to-transparent opacity-50"></div>
           <div className="relative mx-auto max-w-2xl">
