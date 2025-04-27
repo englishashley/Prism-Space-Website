@@ -1,6 +1,7 @@
 import Image from "next/image"
-import { Satellite } from "lucide-react"
+import { Linkedin } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { PrismIcon } from "./components/prism-icon"
 
 export default function Home() {
   return (
@@ -10,7 +11,7 @@ export default function Home() {
         <nav className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-copper-light via-copper to-copper-dark shadow-lg">
-              <Satellite className="h-5 w-5 text-black" />
+              <PrismIcon className="h-5 w-5 text-black" />
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-copper-light via-copper to-copper-dark bg-clip-text text-transparent">
               PRISM SPACE
@@ -22,7 +23,7 @@ export default function Home() {
         </nav>
       </header>
 
-      {/* Hero Section with Video */}
+      {/* Hero Section with Video - No Border */}
       <section className="container mx-auto px-4 py-20">
         <div className="grid gap-12 md:grid-cols-2 items-center">
           <div>
@@ -39,17 +40,19 @@ export default function Home() {
             </p>
           </div>
           <div className="relative">
-            <div className="relative aspect-square overflow-hidden rounded-2xl border border-copper/30 p-2">
-              <div className="absolute inset-0 bg-gradient-to-b from-copper/20 to-transparent opacity-50"></div>
-              {/* Video Component */}
-              <div className="relative h-full w-full rounded-xl overflow-hidden">
-                <video className="h-full w-full object-cover" autoPlay muted loop playsInline>
-                  <source src="/prism-video.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                {/* Copper border overlay */}
-                <div className="absolute inset-0 rounded-xl border border-copper/20 pointer-events-none"></div>
-              </div>
+            {/* Video Component - No Border */}
+            <div className="relative aspect-square overflow-hidden rounded-xl">
+              <video className="h-full w-full object-cover" autoPlay muted loop playsInline>
+                <source src="/prism-video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            {/* Loading New Technology Text */}
+            <div className="mt-4 text-center">
+              <p className="text-white/70 text-sm">Loading new technology...</p>
+              <p className="bg-gradient-to-r from-copper-light via-copper to-copper-dark bg-clip-text text-transparent font-medium mt-1">
+                More info coming soon
+              </p>
             </div>
           </div>
         </div>
@@ -118,77 +121,100 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Form Section */}
+      {/* Contact Form Section - More Casual & Engaging */}
       <section className="container mx-auto px-4 py-20">
         <div className="rounded-3xl border border-copper/30 p-8 md:p-12 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-copper/10 to-transparent opacity-50"></div>
           <div className="relative mx-auto max-w-2xl">
-            <h2 className="mb-8 text-3xl font-bold text-center">
+            <h2 className="mb-4 text-3xl font-bold text-center">
               <span className="bg-gradient-to-r from-copper-light via-copper to-copper-dark bg-clip-text text-transparent">
-                Contact Us
+                Interested?
               </span>
             </h2>
-            <form className="space-y-6">
+            <p className="text-white/70 text-center mb-8">
+              Let's explore how we can help with your satellite data needs!
+            </p>
+            <form className="space-y-6" action="https://formsubmit.co/admin@prismspaceinc.com" method="POST">
+              <input type="hidden" name="_subject" value="New contact from Prism Space website" />
+              <input type="hidden" name="_next" value="https://prismspaceinc.com/thank-you" />
               <div>
                 <label htmlFor="name" className="block mb-2 text-sm text-white/70">
-                  Name
+                  What's your name?
                 </label>
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   className="w-full rounded-md border border-copper/30 bg-black/60 px-4 py-2.5 text-white placeholder:text-white/50 focus:border-copper/50 focus:outline-none"
-                  placeholder="Your name"
+                  placeholder="Your Name"
+                  required
                 />
               </div>
               <div>
                 <label htmlFor="email" className="block mb-2 text-sm text-white/70">
-                  Email
+                  Where can we reach you?
                 </label>
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   className="w-full rounded-md border border-copper/30 bg-black/60 px-4 py-2.5 text-white placeholder:text-white/50 focus:border-copper/50 focus:outline-none"
-                  placeholder="your@email.com"
+                  placeholder="yourname@company.com"
+                  required
                 />
               </div>
               <div>
                 <label htmlFor="message" className="block mb-2 text-sm text-white/70">
-                  Message
+                  What's on your mind?
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={4}
                   className="w-full rounded-md border border-copper/30 bg-black/60 px-4 py-2.5 text-white placeholder:text-white/50 focus:border-copper/50 focus:outline-none"
-                  placeholder="How can we help you?"
+                  placeholder="Tell us about your project or ask us anything..."
+                  required
                 ></textarea>
               </div>
               <Button
                 type="submit"
                 className="w-full bg-gradient-to-r from-copper-light via-copper to-copper-dark text-black hover:from-copper hover:to-copper-dark font-medium"
               >
-                Send Message
+                Let's Talk
               </Button>
             </form>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Footer with LinkedIn Button */}
       <footer className="border-t border-copper/20 py-12">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center justify-center text-center">
             <div className="flex items-center gap-2 mb-4">
               <div className="relative flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-copper-light via-copper to-copper-dark shadow-sm">
-                <Satellite className="h-4 w-4 text-black" />
+                <PrismIcon className="h-4 w-4 text-black" />
               </div>
               <span className="text-lg font-bold bg-gradient-to-r from-copper-light via-copper to-copper-dark bg-clip-text text-transparent">
                 PRISM SPACE
               </span>
             </div>
-            <p className="text-sm text-white/70 max-w-md">
+            <p className="text-sm text-white/70 max-w-md mb-6">
               Transforming satellite data processing with cutting-edge technology.
             </p>
-            <div className="mt-6 text-center text-sm text-copper/50">
+
+            {/* LinkedIn Button */}
+            <a
+              href="https://www.linkedin.com/company/prism-space/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-copper-light via-copper to-copper-dark text-black px-4 py-2 rounded-md hover:from-copper hover:to-copper-dark transition-all mb-6"
+            >
+              <Linkedin className="h-5 w-5" />
+              <span className="font-medium">Follow us on LinkedIn</span>
+            </a>
+
+            <div className="text-center text-sm text-copper/50">
               © {new Date().getFullYear()} Prism Space. All rights reserved.
             </div>
           </div>
