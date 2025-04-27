@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss"
+
 const config = {
   darkMode: ["class"],
   content: [
@@ -47,19 +48,9 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        gold: {
-          "50": "#fbf8eb",
-          "100": "#f7efd0",
-          "200": "#f0db9d",
-          "300": "#e8c15e",
-          "400": "#e3af37",
-          "500": "#d89920",
-          "600": "#bf7819",
-          "700": "#9e5517",
-          "800": "#844319",
-          "900": "#6f381a",
-          "950": "#401c0c",
-        },
+        copper: "#c0a080",
+        "copper-light": "#d1b595",
+        "copper-dark": "#a88a6b",
       },
       borderRadius: {
         lg: "var(--radius)",
